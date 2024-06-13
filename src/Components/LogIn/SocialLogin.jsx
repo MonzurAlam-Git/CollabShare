@@ -9,10 +9,10 @@ const SocialLogin = () => {
     console.log("Github Log In");
   };
   return (
-    <div className="">
+    <div className=" grid  justify-items-center">
       <div className="divider w-96 mx-auto font-bold">OR</div>
       {/* Google Sign In  */}
-      <div className="flex items-center justify-center gap-2  ">
+      <div className="flex flex-wrap w-auto gap-2  ">
         <button
           onClick={handleGoogle}
           className="btn btn-accent text-white  font-bold "
