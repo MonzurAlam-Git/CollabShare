@@ -44,10 +44,17 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <Link className="btn btn-ghost lg:text-xl ">CollabSphere</Link>
+        <Link className="btn btn-ghost lg:text-xl ">
+          Collab<span className="font-bold text-red-500 m-0">Sphere</span>{" "}
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
+          <li>
+            <Link className="bg-rose-500" to="/dashboard/tasks">
+              Tasks
+            </Link>
+          </li>
           <li>
             <Link to="/dashboard">Dashboard</Link>
           </li>

@@ -2,7 +2,7 @@ import { Link, Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
   return (
-    <div className="drawer lg:drawer-open">
+    <div className="drawer lg:drawer-open ">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col items-center justify-center">
         {/* Page content here */}
@@ -20,7 +20,7 @@ const DashboardLayout = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu p-4 w-80 min-h-full bg-gray-400 text-base-content">
+        <ul className="menu p-4 w-80 min-h-full bg-teal-600 text-base-content">
           {/* Sidebar content here */}
           <li>
             <Link
@@ -36,6 +36,11 @@ const DashboardLayout = () => {
               to="/dashboard/tasks"
             >
               Tasks
+            </Link>
+          </li>
+          <li>
+            <Link className="font-bold text-black hover:text-white" to="/">
+              Home
             </Link>
           </li>
         </ul>

@@ -11,7 +11,7 @@ const Title = (children) => {
             {parentText}
           </h1>
           {/*Background Text */}
-          <h1 className="text-2xl lg:text-8xl font-bold text-black opacity-10 top-0 left-0 transform -translate-y-1/8 translate-x-1/4">
+          <h1 className="text-2xl lg:text-8xl font-bold text-black opacity-10 top-0 left-0 transform -translate-y-24 translate-x-1/4">
             {childText}
           </h1>
         </div>
