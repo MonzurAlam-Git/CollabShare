@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
   return (
@@ -6,6 +6,7 @@ const DashboardLayout = () => {
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col items-center justify-center">
         {/* Page content here */}
+        <Outlet />
         <label
           htmlFor="my-drawer-2"
           className="btn btn-primary drawer-button lg:hidden"
@@ -19,10 +20,23 @@ const DashboardLayout = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+        <ul className="menu p-4 w-80 min-h-full bg-gray-400 text-base-content">
           {/* Sidebar content here */}
           <li>
-            <Outlet />
+            <Link
+              className="font-bold text-black hover:text-white"
+              to="/dashboard/profile"
+            >
+              Profile
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="font-bold text-black hover:text-white"
+              to="/dashboard/tasks"
+            >
+              Tasks
+            </Link>
           </li>
         </ul>
       </div>

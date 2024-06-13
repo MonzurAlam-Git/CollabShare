@@ -8,7 +8,8 @@ const Banner = () => {
           {/* Text content */}
           <div className="space-y-2">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
-              Streamline Your Team's Workflow with CollabSphere
+              Streamline Your Team's Workflow with{" "}
+              <span className="font-bold text-red-500">Collab</span>Sphere
             </h1>
             <p className="mx-auto max-w-[700px]">
               Effortlessly manage tasks, collaborate seamlessly, and boost

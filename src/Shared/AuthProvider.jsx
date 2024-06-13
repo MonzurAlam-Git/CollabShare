@@ -5,6 +5,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../../firebase.init";
@@ -15,12 +16,15 @@ export const AuthContext = createContext(null);
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const login = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
@@ -34,16 +38,19 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, githubProvider);
   };
 
-  const signOut = () => {
-    return signOut(auth);
+  const logout = () => {
+    setUser(null);
+    signOut(auth);
   };
 
   useEffect(() => {
     const userObserver = onAuthStateChanged(auth, (user) => {
       if (user) {
+        setLoading(false);
         setUser(user);
         console.log("logged In User =>", user.email);
       } else {
+        setLoading(false);
         console.log("No user");
       }
     });
@@ -58,7 +65,8 @@ const AuthProvider = ({ children }) => {
     login,
     googleLogin,
     githubLogin,
-    signOut,
+    logout,
+    loading,
   };
   return (
     <AuthContext.Provider value={authValue}>{children}</AuthContext.Provider>

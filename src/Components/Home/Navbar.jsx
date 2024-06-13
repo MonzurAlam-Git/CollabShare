@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import Profile from "./Profile";
+import { useAuth } from "../../Hooks/useAuth";
 
 const Navbar = () => {
+  const { user } = useAuth();
   return (
     <div className="navbar bg-base-100 font-bold mx-auto container ">
       <div className="navbar-start">
@@ -72,10 +74,16 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end flex gap-4">
-        <Link className="font-bold hidden lg:inline-flex" to="/login">
-          Log in
-        </Link>
-        <Profile></Profile>
+        {user ? (
+          <Profile></Profile>
+        ) : (
+          <Link
+            className="font-semibold  hover:text-blue-700 hover:font-bold"
+            to="/login"
+          >
+            Log in
+          </Link>
+        )}
       </div>
     </div>
   );

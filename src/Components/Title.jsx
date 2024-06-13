@@ -7,7 +7,7 @@ const Title = (children) => {
       <div className="flex items-center justify-center ">
         <div className="relative">
           {/* highlighted Text */}
-          <h1 className="text-xl lg:text-4xl text-black relative z-10">
+          <h1 className="text-xl lg:text-4xl font-semibold text-black relative z-10 ">
             {parentText}
           </h1>
           {/*Background Text */}

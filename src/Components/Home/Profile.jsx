@@ -1,51 +1,41 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useAuth } from "../../Hooks/useAuth";
+import { Link, useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const [open, setOpen] = useState(false);
-  const dropDownRef = useRef(null);
-  const items = ["Profile", "Dashboard", "Settings", "Log Out"];
-
-  useEffect(() => {
-    const close = (e) => {
-      if (dropDownRef.current && !dropDownRef.current.contains(e.target)) {
-        setOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", close);
-    return () => {
-      document.removeEventListener("mousedown", close);
-    };
-  }, []);
+  const navigate = useNavigate();
+  const { logout, user } = useAuth();
+  const { photoURL } = user;
+  const handleLogout = async () => {
+    await logout();
+    navigate("/");
+  };
   return (
-    <div ref={dropDownRef} className="relative mx-auto w-fit text-black">
-      <button onClick={() => setOpen((prev) => !prev)}>
-        <img
-          width={40}
-          height={40}
-          className="size-10 rounded-full bg-slate-500 object-cover duration-500 hover:scale-x-[98%] hover:opacity-80"
-          src="https://source.unsplash.com/300x300/?profile"
-          alt="avatar drop down navigate ui"
-        />
-      </button>
+    <div className="dropdown dropdown-bottom  dropdown-hover">
+      <div tabIndex={0} role="button" className=" m-1">
+        <div className="avatar online">
+          <div className="w-8 lg:w-10 rounded-full">
+            <img src={photoURL} />
+          </div>
+        </div>
+      </div>
       <ul
-        className={`${
-          open ? "visible duration-300" : "invisible"
-        } absolute right-0 top-12 z-50 w-fit rounded-sm bg-slate-200 shadow-md`}
+        tabIndex={0}
+        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
       >
-        {items.map((item, idx) => (
-          <li
-            key={idx}
-            className={`rounded-sm px-6 py-2 ${
-              open ? "opacity-100 duration-300" : "opacity-0"
-            }  ${
-              item === "Log Out"
-                ? "text-red-500 hover:bg-red-600 hover:text-white"
-                : "hover:bg-slate-300"
-            }`}
+        <li>
+          <Link to="/profile">Profile</Link>
+        </li>
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+        <li>
+          <button
+            onClick={handleLogout}
+            className="text-red-600 font-extrabold "
           >
-            {item}
-          </li>
-        ))}
+            Logout
+          </button>
+        </li>
       </ul>
     </div>
   );
