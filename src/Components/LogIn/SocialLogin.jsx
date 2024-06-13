@@ -1,18 +1,20 @@
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { useAuth } from "../../Hooks/useAuth";
 
 const SocialLogin = () => {
+  const { googleLogin, githubLogin } = useAuth();
   const handleGoogle = () => {
-    console.log("google Log In");
+    return googleLogin();
   };
   const handleGithub = () => {
-    console.log("Github Log In");
+    return githubLogin();
   };
   return (
-    <div className=" grid  justify-items-center">
-      <div className="divider w-96 mx-auto font-bold">OR</div>
+    <div className="grid grid-cols-1 place-items-center	 mx-auto  ">
+      <div className="divider w-96 font-bold ">OR</div>
       {/* Google Sign In  */}
-      <div className="flex flex-wrap w-auto gap-2  ">
+      <div className="flex gap-2 items-center">
         <button
           onClick={handleGoogle}
           className="btn btn-accent text-white  font-bold "

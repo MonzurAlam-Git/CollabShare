@@ -1,15 +1,18 @@
 import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../../firebase.init";
-import { useNavigate } from "react-router-dom";
 
 // create context
 export const AuthContext = createContext(null);
 
+// eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
@@ -19,6 +22,20 @@ const AuthProvider = ({ children }) => {
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const googleLogin = () => {
+    const googleProvider = new GoogleAuthProvider();
+    return signInWithPopup(auth, googleProvider);
+  };
+
+  const githubLogin = () => {
+    const githubProvider = new GithubAuthProvider();
+    return signInWithPopup(auth, githubProvider);
+  };
+
+  const signOut = () => {
+    return signOut(auth);
   };
 
   useEffect(() => {
@@ -35,7 +52,14 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  const authValue = { createUser, login };
+  const authValue = {
+    user,
+    createUser,
+    login,
+    googleLogin,
+    githubLogin,
+    signOut,
+  };
   return (
     <AuthContext.Provider value={authValue}>{children}</AuthContext.Provider>
   );

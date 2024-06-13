@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Banner = () => {
   return (
     <section className=" w-full lg:w-full  py-12 md:py-24 flex justify-center bg-white flex-col lg:py-32 bg-gradient-to-b from-#52C2FF to-white">
@@ -6,19 +8,17 @@ const Banner = () => {
           {/* Text content */}
           <div className="space-y-2">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
-              Welcome to Navigate UI
+              Streamline Your Team's Workflow with CollabSphere
             </h1>
             <p className="mx-auto max-w-[700px]">
-              Explore the wide range of React.js and tailwind components. Dive
-              into the world of the creativity of web.
+              Effortlessly manage tasks, collaborate seamlessly, and boost
+              productivity. CollabSphere is your all-in-one task management
+              solution for teams of any size
             </p>
           </div>
           <div className="space-x-4">
-            <button
-              className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-gray-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"
-              href="#"
-            >
-              Lets Explore
+            <button className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-gray-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50">
+              <Link to="/dashboard">Lets Explore</Link>
             </button>
           </div>
         </div>

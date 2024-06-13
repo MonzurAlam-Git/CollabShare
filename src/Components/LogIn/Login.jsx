@@ -15,8 +15,8 @@ const Login = () => {
   };
 
   return (
-    <div className="container mx-auto lg:w-96">
-      <form onSubmit={handleLogin}>
+    <div className="grid justify-items-center ">
+      <form className="w-64 lg:w-96" onSubmit={handleLogin}>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>

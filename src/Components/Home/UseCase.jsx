@@ -4,7 +4,7 @@ const UseCase = ({ x }) => {
   // eslint-disable-next-line react/prop-types
   const { id, img, title, description } = x;
   return (
-    <div className="card  bg-base-100 shadow-xl ">
+    <div className="card shadow-xl ">
       <figure className="px-10 pt-10">
         <img src={img} alt="Shoes" className="rounded-xl h-48 w-56" />
       </figure>
