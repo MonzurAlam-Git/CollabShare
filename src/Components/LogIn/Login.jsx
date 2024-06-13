@@ -11,12 +11,11 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
-    login();
+    login(email, password);
   };
 
   return (
-    <div className="card-body lg:container mx-auto lg:w-96">
+    <div className="container mx-auto lg:w-96">
       <form onSubmit={handleLogin}>
         <div className="form-control">
           <label className="label">

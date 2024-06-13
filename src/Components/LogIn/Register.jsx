@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
+import { useAuth } from "../../Hooks/useAuth";
 const Register = () => {
-  const [passMatch, setpassMatch] = useState(false);
+  // const [passMatch, setpassMatch] = useState(false);
+  const { createUser } = useAuth();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -11,9 +13,9 @@ const Register = () => {
     const password = form.password.value;
     const confirm_password = form.confirm_password.value;
     if (password === confirm_password) {
-      setpassMatch(true);
+      createUser(email, password);
     }
-    console.log(email, password);
+    console.log(email, password, confirm_password);
   };
 
   return (
@@ -51,7 +53,7 @@ const Register = () => {
             type="password"
             placeholder="Confirm password"
             className="input input-bordered"
-            name="password"
+            name="confirm_password"
             required
           />
         </div>

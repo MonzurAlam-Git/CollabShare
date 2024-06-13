@@ -3,7 +3,7 @@ import WhoBenefits from "./WhoBenefits";
 
 const Home = () => {
   return (
-    <div>
+    <div className="">
       {/* Banner  */}
       <Banner></Banner>
       <WhoBenefits></WhoBenefits>
