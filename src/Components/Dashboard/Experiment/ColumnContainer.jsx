@@ -113,6 +113,7 @@ function ColumnContainer({
         py-1
         text-sm
         rounded-full
+        
         "
           >
             0

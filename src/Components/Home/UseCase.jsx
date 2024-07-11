@@ -12,7 +12,9 @@ const UseCase = ({ x }) => {
         <h2 className="card-title">{title}</h2>
         <p>{description}</p>
         <div className="card-actions">
-          <button className="btn btn-accent">Explore</button>
+          <button className="btn btn-error text-white hover:text-black">
+            Explore
+          </button>
         </div>
       </div>
     </div>

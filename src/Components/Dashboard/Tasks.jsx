@@ -4,7 +4,7 @@ import Kanban from "./Experiment/Kanban";
 
 const Tasks = () => {
   return (
-    <div className="bg-black text-white">
+    <div className="text-black bg-tealg-400">
       <h1 className="text-2xl text-center font-bold">Tasks</h1>
       <Kanban></Kanban>
     </div>
